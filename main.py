@@ -92,13 +92,11 @@ def display_ui():
     """Displays the user interface for file upload and returns uploaded files."""
     st.title("Removedor de fondos")
     st.markdown("")
-    limite = "100"
     if st.button("Limpiar"):
         st.session_state["uploader_key"] = str(uuid.uuid4())
 
     uploaded_files = st.file_uploader(
     
-        "Limite de Imagenes: "+limite,
         type=["png", "jpg", "jpeg"],
         accept_multiple_files=True,
         key=st.session_state.get("uploader_key", "file_uploader"),
