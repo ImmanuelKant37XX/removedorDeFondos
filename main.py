@@ -7,7 +7,7 @@ from PIL import Image
 from rembg import remove
 import uuid
 
-MAX_FILES = 10
+MAX_FILES = 100
 ALLOWED_TYPES = ["png", "jpg", "jpeg"]
 
 def setup_page():
@@ -92,7 +92,7 @@ def display_ui():
     """Displays the user interface for file upload and returns uploaded files."""
     st.title("Removedor de fondos")
     st.markdown("")
-    limite = "10"
+    limite = "100"
     if st.button("Limpiar"):
         st.session_state["uploader_key"] = str(uuid.uuid4())
 
@@ -126,7 +126,7 @@ def process_and_display_images(uploaded_files):
         return
 
     if len(uploaded_files) > MAX_FILES:
-        st.warning(f"Maximum {MAX_FILES} files will be processed.")
+        st.warning(f"Maximo de archivos {MAX_FILES} seran procesados.")
         uploaded_files = uploaded_files[:MAX_FILES]
 
     results = []
